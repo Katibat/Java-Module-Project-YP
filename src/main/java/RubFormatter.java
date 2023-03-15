@@ -1,13 +1,17 @@
 public class RubFormatter {
     public String formatter(double input) {
-        int ending = (int) input;
+        int price = (int) input;
         String rub;
-        if (ending % 10 == 1) {
+        if (price > 100) {
+            price %= 100;
+        }
+        if (price > 20) {
+            price %= 10;
+        }
+        if (price == 1) {
             rub  = "рубль";
-        } else if ((ending % 10 >= 2) && (ending % 10 <= 4)) {
+        } else if (price > 1 && price < 5) {
             rub  = "рубля";
-        } else if ((ending % 100 >= 11) && (ending % 100 <= 20)) {
-            rub  = "рублей";
         } else {
             rub  = "рублей";
         }
